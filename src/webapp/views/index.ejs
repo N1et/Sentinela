@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+  </head>
+  <script type="text/javascript">
+    var alertMessage = <%-JSON.stringify(alertMessage)%>
+    console.log(alertMessage)
+
+  </script>
+
+
+  <style>
+    body {
+      background-color: #3c373e;
+      font-weight: 300; 
+      color: white;
+
+    }
+
+    table, th, td {
+      padding: 7px 15px 7px 15px;
+      background-color: #2125293f;
+      font-size: 14px;
+
+    }
+  </style>
+  <body>
+    <div class="container mt-2">
+      <header>
+        <h2>HermesAlert</h2>
+        <p>The alerts from DependaBot.</p>
+        <script type='text/javascript'>
+           var rows =<%-JSON.stringify(alertMessage)%>
+        </script>
+      </header>
+      <section>
+        <table>
+          <tr>
+            <th>Repository</th>
+            <th>Package</th>
+            <th>Vulnerability</th>
+            <th>Description</th>
+            <th>Severity</th>
+            <th>Vulnerable</th>
+            <th>Patched Version</th>
+            <th>Link</th>
+        </tr>
+        <%- data %>
+        </table>
+      </section>
+    </div>
+  </body>
+</html>
