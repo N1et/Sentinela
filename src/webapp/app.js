@@ -1,6 +1,5 @@
 const express = require('express')
 const {GetDependabotAlert} = require('../lib/GetDependabotAlert'); 
-const config  = require('../config')
 
 // Application to show the alerts from DependaBot
 const app = express()
@@ -9,8 +8,10 @@ const port = 3000
 app.set('view engine', 'ejs');
 app.set('views', __dirname+'/views');
 
+require('dotenv').config()
+
 const Webserver = async () => {
-        const alertMessage = await GetDependabotAlert(config.repoName, config.repoOwner, config.tokengit)
+        const alertMessage = await GetDependabotAlert(process.env.REPO_NAME, process.env.REPO_OWNER, process.env.GIT_TOKEN)
         var alertcel = ''
         alertMessage.forEach(alertMessage => {
           alertcel += "<tr><td>" + alertMessage.repository.name + "</td>";
