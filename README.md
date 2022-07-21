@@ -16,7 +16,7 @@ WEBHOOK_URL=""
 Now, to use this application it's necessary to have NodeJS Installed and execute the following command.
 
 ```console
-$ node src/index.js
+$ npm install && node src/index.js
 ```
 
 After running the application collect all the alerts from the DependaBot and send to the Discord Server using the WebHook Bot.  
